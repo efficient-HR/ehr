@@ -12,7 +12,7 @@ export class EmailController {
   }
 
   @Post()
-  create(): Email {
+  create(): Promise<Email> {
     return this.emailService.create();
   }
 }

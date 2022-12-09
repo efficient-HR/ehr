@@ -5,8 +5,8 @@ import { Email } from 'src/database/entities/email.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  imports:[TypeOrmModule.forFeature([Email])],
+  imports: [TypeOrmModule.forFeature([Email])],
   providers: [EmailService],
-  controllers: [EmailController]
+  controllers: [EmailController],
 })
 export class EmailModule {}

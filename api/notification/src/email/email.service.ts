@@ -14,13 +14,12 @@ export class EmailService {
     return this.emailRepository.find();
   }
 
-  create(): Email {
+  create(): Promise<Email> {
     const email = new Email();
     email.body = 'body 1';
     email.to = 'Some to';
     email.subject = 'some subject';
-    var emailRes =  this.emailRepository.create(email);
-    this.emailRepository.save(email);
-    return emailRes;
+
+    return this.emailRepository.save(email);
   }
 }
