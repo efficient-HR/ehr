@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { EmailDto } from 'src/app/api/notification/models';
 
 @Component({
   selector: 'app-email',
@@ -9,5 +10,5 @@ export class EmailComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     console.log(this.emails);
   }
-  @Input() emails: any;
+  @Input() emails: EmailDto[] | null | undefined;
 }

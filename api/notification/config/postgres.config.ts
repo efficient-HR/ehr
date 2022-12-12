@@ -7,6 +7,6 @@ export const postgresConfig: TypeOrmModuleOptions = {
   username: 'arya',
   password: '',
   database: 'arya',
-  entities: ['dist/**/*.entity{.ts,.js}'],
+  entities: [__dirname + '/../**/*.entity.{js,ts}'],
   synchronize: true,
 };

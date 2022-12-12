@@ -1,0 +1,35 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api": {
+      "get": {
+        "operationId": "getHello",
+        "parameters": [],
+        "responses": { "200": { "description": "" } }
+      }
+    },
+    "/api/email": {
+      "get": {
+        "operationId": "all",
+        "parameters": [],
+        "responses": { "200": { "description": "" } },
+        "tags": ["email"]
+      },
+      "post": {
+        "operationId": "create",
+        "parameters": [],
+        "responses": { "201": { "description": "" } },
+        "tags": ["email"]
+      }
+    }
+  },
+  "info": {
+    "title": "Email Api",
+    "description": "The Email API description",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": { "schemas": {} }
+}
