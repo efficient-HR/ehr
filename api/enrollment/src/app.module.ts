@@ -6,6 +6,9 @@ import { postgresConfig } from 'config/postgres.config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CompanyModule } from './company/company.module';
+import { VacancyModule } from './vacancy/vacancy.module';
+import { ApplicaionModule } from './applicaion/applicaion.module';
+import { InterviewModule } from './interview/interview.module';
 
 @Module({
   imports: [
@@ -15,6 +18,12 @@ import { CompanyModule } from './company/company.module';
     AutomapperModule.forRoot({
       strategyInitializer: classes(),
     }),
+
+    VacancyModule,
+
+    ApplicaionModule,
+
+    InterviewModule,
   ],
   controllers: [AppController],
   providers: [AppService],

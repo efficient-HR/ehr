@@ -2,7 +2,7 @@ import { AutomapperProfile, InjectMapper } from '@automapper/nestjs';
 import { createMap, Mapper } from '@automapper/core';
 import { Injectable } from '@nestjs/common';
 import { Company } from 'src/database/entities/company.entity';
-import { CompanylDto } from './dto/company.dto';
+import { CompanylDto } from '../company/dto/company.dto';
 @Injectable()
 export class EmailMapperProfile extends AutomapperProfile {
   constructor(@InjectMapper() mapper: Mapper) {
