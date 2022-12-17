@@ -1,7 +1,7 @@
 import { AutoMap } from '@automapper/classes';
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity({ schema: 'notification' })
 export class Email {
   @PrimaryGeneratedColumn()
   @AutoMap()
