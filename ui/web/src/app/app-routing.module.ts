@@ -10,7 +10,9 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-          import('./modules/email/email.module').then((m) => m.EmailModule),
+          import('./modules/company/company.module').then(
+            (m) => m.CompanyModule
+          ),
       },
       {
         path: 'email',

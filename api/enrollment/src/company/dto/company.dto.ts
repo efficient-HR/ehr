@@ -1,7 +1,7 @@
 import { AutoMap } from '@automapper/classes';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CompanylDto {
+export class CompanyDto {
   @ApiProperty()
   @AutoMap()
   id: number;
