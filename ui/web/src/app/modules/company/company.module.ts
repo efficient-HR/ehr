@@ -3,13 +3,12 @@ import { CommonModule } from '@angular/common';
 import { CompanyComponent } from './company/company.component';
 import { CompanyShellComponent } from './company.shell/company.shell.component';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-const routes: Routes = [
-  { path: '', component: CompanyShellComponent, pathMatch: 'full' },
-];
+const routes: Routes = [{ path: '', component: CompanyShellComponent, pathMatch: 'full' }];
 
 @NgModule({
   declarations: [CompanyComponent, CompanyShellComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule.forChild(routes)],
 })
 export class CompanyModule {}

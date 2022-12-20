@@ -8,7 +8,7 @@ import { EmailModule } from './modules/email/email.module';
 import { ApiModule } from './api/notification/api.module';
 import { environment } from 'src/environments/environment';
 import { LayoutModule } from './layout/layout.module';
-import { RouterModule } from '@angular/router';
+import { EnrollmentApiModule } from './api/enrollment/enrollment-api.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +19,7 @@ import { RouterModule } from '@angular/router';
     EmailModule,
     LayoutModule,
     ApiModule.forRoot({ rootUrl: environment.notificationUri }),
+    EnrollmentApiModule.forRoot({ rootUrl: environment.enrollmentUri }),
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

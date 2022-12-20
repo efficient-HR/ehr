@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "notification-api-gen": "ng-openapi-gen --input http://localhost:3010/api-json --output ./src/app/api/notification",
-    "enrollment-api-gen": "ng-openapi-gen --input http://localhost:3020/api-json --output ./src/app/api/enrollment"
+    "notification-api-gen": "ng-openapi-gen --input http://localhost:3010/api-json --output ./src/app/api/notification --module NotificationApiModule",
+    "enrollment-api-gen": "ng-openapi-gen --input http://localhost:3020/api-json --output ./src/app/api/enrollment --module EnrollmentApiModule"
   },
   "private": true,
   "dependencies": {

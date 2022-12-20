@@ -20,10 +20,10 @@ import { ApiService } from './services/api.service';
     ApiConfiguration
   ],
 })
-export class ApiModule {
-  static forRoot(params: ApiConfigurationParams): ModuleWithProviders<ApiModule> {
+export class EnrollmentApiModule {
+  static forRoot(params: ApiConfigurationParams): ModuleWithProviders<EnrollmentApiModule> {
     return {
-      ngModule: ApiModule,
+      ngModule: EnrollmentApiModule,
       providers: [
         {
           provide: ApiConfiguration,
@@ -34,11 +34,11 @@ export class ApiModule {
   }
 
   constructor( 
-    @Optional() @SkipSelf() parentModule: ApiModule,
+    @Optional() @SkipSelf() parentModule: EnrollmentApiModule,
     @Optional() http: HttpClient
   ) {
     if (parentModule) {
-      throw new Error('ApiModule is already loaded. Import in your base AppModule only.');
+      throw new Error('EnrollmentApiModule is already loaded. Import in your base AppModule only.');
     }
     if (!http) {
       throw new Error('You need to import the HttpClientModule in your AppModule! \n' +
