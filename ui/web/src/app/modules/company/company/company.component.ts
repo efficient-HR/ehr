@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CompanyDto } from 'src/app/api/enrollment/models';
+import { companyControls } from './company.control';
 
 @Component({
   selector: 'app-company',
@@ -8,18 +8,11 @@ import { CompanyDto } from 'src/app/api/enrollment/models';
   styleUrls: ['./company.component.scss'],
 })
 export class CompanyComponent {
-  form: FormGroup;
   @Output() saveEvent = new EventEmitter<CompanyDto>();
+  controls = companyControls;
+  constructor() {}
 
-  constructor(formBuilder: FormBuilder) {
-    this.form = formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
-      about: ['', [Validators.required, Validators.minLength(3)]],
-      location: ['', [Validators.required, Validators.minLength(3)]],
-    });
-  }
-
-  save() {
-    this.saveEvent.emit(this.form.value);
+  onSubmit($event: any) {
+    this.saveEvent.emit($event);
   }
 }
