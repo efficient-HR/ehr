@@ -1,5 +1,6 @@
 import { AutoMap } from '@automapper/classes';
-import { Entity, Column } from 'typeorm';
+import { Entity, Column, ManyToOne } from 'typeorm';
+import { Company } from './company.entity';
 import { ParentEntity } from './parentEntity';
 
 @Entity({ schema: 'company', name: 'vacancy' })
@@ -29,4 +30,7 @@ export class Vacancy extends ParentEntity {
   @Column()
   @AutoMap()
   hr: string;
+
+  @ManyToOne(() => Vacancy, (v) => v.company)
+  company: Company;
 }
