@@ -19,6 +19,13 @@ export class CompanyService {
     return this.mapper.mapArray(emails, Company, CompanyDto);
   }
 
+  async getById(id: number): Promise<CompanyDto> {
+    const email = await this.companyRepository.findOne({
+      where: { id: id },
+    });
+    return this.mapper.map(email, Company, CompanyDto);
+  }
+
   create(company: CompanyDto): Promise<Company> {
     const req = this.mapper.map(company, CompanyDto, Company);
     return this.companyRepository.save(req);

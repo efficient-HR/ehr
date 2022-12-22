@@ -1,5 +1,5 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CompanyService } from './company.service';
 import { CompanyDto } from './dto/company.dto';
 
@@ -12,6 +12,13 @@ export class CompanyController {
   @ApiResponse({ type: CompanyDto, isArray: true })
   async all(): Promise<CompanyDto[]> {
     return this.companyService.findAll();
+  }
+
+  @Get('/:id')
+  @ApiResponse({ type: CompanyDto, isArray: false })
+  @ApiParam({ name: 'id', required: true })
+  async get(@Param('id') id: number): Promise<CompanyDto> {
+    return this.companyService.getById(id);
   }
 
   @Post()

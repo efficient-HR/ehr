@@ -121,4 +121,55 @@ export class CompanyService extends BaseService {
     );
   }
 
+  /**
+   * Path part for operation get
+   */
+  static readonly GetPath = '/company/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `get()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  get$Response(params: {
+    id: number;
+    context?: HttpContext
+  }
+): Observable<StrictHttpResponse<CompanyDto>> {
+
+    const rb = new RequestBuilder(this.rootUrl, CompanyService.GetPath, 'get');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: params?.context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<CompanyDto>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `get$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  get(params: {
+    id: number;
+    context?: HttpContext
+  }
+): Observable<CompanyDto> {
+
+    return this.get$Response(params).pipe(
+      map((r: StrictHttpResponse<CompanyDto>) => r.body as CompanyDto)
+    );
+  }
+
 }

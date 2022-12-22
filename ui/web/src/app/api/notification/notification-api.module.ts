@@ -20,10 +20,10 @@ import { AppService } from './services/app.service';
     ApiConfiguration
   ],
 })
-export class ApiModule {
-  static forRoot(params: ApiConfigurationParams): ModuleWithProviders<ApiModule> {
+export class NotificationApiModule {
+  static forRoot(params: ApiConfigurationParams): ModuleWithProviders<NotificationApiModule> {
     return {
-      ngModule: ApiModule,
+      ngModule: NotificationApiModule,
       providers: [
         {
           provide: ApiConfiguration,
@@ -34,11 +34,11 @@ export class ApiModule {
   }
 
   constructor( 
-    @Optional() @SkipSelf() parentModule: ApiModule,
+    @Optional() @SkipSelf() parentModule: NotificationApiModule,
     @Optional() http: HttpClient
   ) {
     if (parentModule) {
-      throw new Error('ApiModule is already loaded. Import in your base AppModule only.');
+      throw new Error('NotificationApiModule is already loaded. Import in your base AppModule only.');
     }
     if (!http) {
       throw new Error('You need to import the HttpClientModule in your AppModule! \n' +
