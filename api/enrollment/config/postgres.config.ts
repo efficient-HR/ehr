@@ -9,4 +9,5 @@ export const postgresConfig: TypeOrmModuleOptions = {
   database: 'arya',
   entities: [__dirname + '/../**/*.entity.{js,ts}'],
   synchronize: true,
+  logging: true,
 };

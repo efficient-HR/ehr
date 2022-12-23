@@ -1,5 +1,11 @@
 import { AutoMap } from '@automapper/classes';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  JoinTable,
+} from 'typeorm';
 import { Vacancy } from './vacancy.entity';
 
 @Entity({ schema: 'company', name: 'company' })
@@ -21,6 +27,6 @@ export class Company {
   @AutoMap()
   about: string;
 
-  @OneToMany(() => Company, (c) => c.vacancies)
+  @OneToMany(() => Vacancy, (c) => c.company)
   vacancies: Vacancy[];
 }

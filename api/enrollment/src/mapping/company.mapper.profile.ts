@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common';
 import { Company } from 'src/database/entities/company.entity';
 import { CompanyDto } from '../company/dto/company.dto';
 @Injectable()
-export class EmailMapperProfile extends AutomapperProfile {
+export class CompanyMapperProfile extends AutomapperProfile {
   constructor(@InjectMapper() mapper: Mapper) {
     super(mapper);
   }

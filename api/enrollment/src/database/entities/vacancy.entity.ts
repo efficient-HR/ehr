@@ -1,5 +1,5 @@
 import { AutoMap } from '@automapper/classes';
-import { Entity, Column, ManyToOne } from 'typeorm';
+import { Entity, Column, ManyToOne, JoinTable } from 'typeorm';
 import { Company } from './company.entity';
 import { ParentEntity } from './parentEntity';
 
@@ -27,10 +27,10 @@ export class Vacancy extends ParentEntity {
   description: string;
 
   // TODO: this must be linked to user table.
-  @Column()
+  @Column({ nullable: true })
   @AutoMap()
   hr: string;
 
-  @ManyToOne(() => Vacancy, (v) => v.company)
+  @ManyToOne(() => Company, (v) => v.vacancies)
   company: Company;
 }
