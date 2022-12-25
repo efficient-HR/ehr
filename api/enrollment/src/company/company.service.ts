@@ -26,7 +26,7 @@ export class CompanyService {
     return this.mapper.map(email, Company, CompanyDto);
   }
 
-  create(company: CompanyDto): Promise<Company> {
+  save(company: CompanyDto): Promise<Company> {
     const req = this.mapper.map(company, CompanyDto, Company);
     return this.companyRepository.save(req);
   }

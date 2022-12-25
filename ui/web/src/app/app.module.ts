@@ -22,7 +22,7 @@ import { NotificationApiModule } from './api/notification/notification-api.modul
     LayoutModule,
     NotificationApiModule.forRoot({ rootUrl: environment.notificationUri }),
     EnrollmentApiModule.forRoot({ rootUrl: environment.enrollmentUri }),
-    FormlyModule.forRoot(),
+    FormlyModule.forRoot({ validationMessages: [{ name: 'required', message: 'This field is required' }] }),
     FormlyBootstrapModule,
   ],
   bootstrap: [AppComponent],

@@ -22,8 +22,11 @@ export class CompanyController {
   }
 
   @Post()
-  @ApiResponse({ type: CompanyDto })
-  async create(@Body() company: CompanyDto): Promise<CompanyDto> {
-    return this.companyService.create(company);
+  @ApiResponse({
+    type: CompanyDto,
+    description: 'pass id to update otherwise insert.',
+  })
+  async save(@Body() company: CompanyDto): Promise<CompanyDto> {
+    return this.companyService.save(company);
   }
 }

@@ -1,5 +1,5 @@
 import { AutoMap } from '@automapper/classes';
-import { Entity, Column, ManyToOne, JoinTable } from 'typeorm';
+import { Entity, Column, ManyToOne } from 'typeorm';
 import { Company } from './company.entity';
 import { ParentEntity } from './parentEntity';
 
@@ -31,6 +31,8 @@ export class Vacancy extends ParentEntity {
   @AutoMap()
   hr: string;
 
-  @ManyToOne(() => Company, (v) => v.vacancies)
+  @ManyToOne(() => Company, (v) => v.vacancies, {
+    onDelete: 'CASCADE',
+  })
   company: Company;
 }

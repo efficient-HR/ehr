@@ -8,16 +8,12 @@ const routes: Routes = [
     component: DefaultLayoutComponent,
     children: [
       {
-        path: '',
-        loadChildren: () =>
-          import('./modules/company/company.module').then(
-            (m) => m.CompanyModule
-          ),
+        path: 'company',
+        loadChildren: () => import('./modules/company/company.module').then((m) => m.CompanyModule),
       },
       {
         path: 'email',
-        loadChildren: () =>
-          import('./modules/email/email.module').then((m) => m.EmailModule),
+        loadChildren: () => import('./modules/email/email.module').then((m) => m.EmailModule),
       },
     ],
   },

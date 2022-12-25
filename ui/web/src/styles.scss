@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.form-control{
+  min-height: calc(1.53em + 0.5rem + 2px);
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.form-label{
+    margin-bottom: 0;
+    text-transform: capitalize;
+}
+
+formly-wrapper-form-field .mb-3{
+  margin-bottom: 0.3rem !important;
+}

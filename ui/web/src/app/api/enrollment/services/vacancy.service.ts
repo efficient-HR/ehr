@@ -9,12 +9,13 @@ import { RequestBuilder } from '../request-builder';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
-import { CompanyDto } from '../models/company-dto';
+import { CreateVacancyDto } from '../models/create-vacancy-dto';
+import { VacancyDto } from '../models/vacancy-dto';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CompanyService extends BaseService {
+export class VacancyService extends BaseService {
   constructor(
     config: ApiConfiguration,
     http: HttpClient
@@ -23,22 +24,22 @@ export class CompanyService extends BaseService {
   }
 
   /**
-   * Path part for operation all
+   * Path part for operation get_1
    */
-  static readonly AllPath = '/company';
+  static readonly Get_1Path = '/vacancy';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `all()` instead.
+   * To access only the response body, use `get_1()` instead.
    *
    * This method doesn't expect any request body.
    */
-  all$Response(params?: {
+  get_1$Response(params?: {
     context?: HttpContext
   }
-): Observable<StrictHttpResponse<Array<CompanyDto>>> {
+): Observable<StrictHttpResponse<Array<VacancyDto>>> {
 
-    const rb = new RequestBuilder(this.rootUrl, CompanyService.AllPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, VacancyService.Get_1Path, 'get');
     if (params) {
     }
 
@@ -49,45 +50,45 @@ export class CompanyService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Array<CompanyDto>>;
+        return r as StrictHttpResponse<Array<VacancyDto>>;
       })
     );
   }
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `all$Response()` instead.
+   * To access the full response (for headers, for example), `get_1$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  all(params?: {
+  get_1(params?: {
     context?: HttpContext
   }
-): Observable<Array<CompanyDto>> {
+): Observable<Array<VacancyDto>> {
 
-    return this.all$Response(params).pipe(
-      map((r: StrictHttpResponse<Array<CompanyDto>>) => r.body as Array<CompanyDto>)
+    return this.get_1$Response(params).pipe(
+      map((r: StrictHttpResponse<Array<VacancyDto>>) => r.body as Array<VacancyDto>)
     );
   }
 
   /**
-   * Path part for operation save
+   * Path part for operation create
    */
-  static readonly SavePath = '/company';
+  static readonly CreatePath = '/vacancy';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `save()` instead.
+   * To access only the response body, use `create()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  save$Response(params: {
+  create$Response(params: {
     context?: HttpContext
-    body: CompanyDto
+    body: CreateVacancyDto
   }
-): Observable<StrictHttpResponse<CompanyDto>> {
+): Observable<StrictHttpResponse<VacancyDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, CompanyService.SavePath, 'post');
+    const rb = new RequestBuilder(this.rootUrl, VacancyService.CreatePath, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
     }
@@ -99,46 +100,46 @@ export class CompanyService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<CompanyDto>;
+        return r as StrictHttpResponse<VacancyDto>;
       })
     );
   }
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `save$Response()` instead.
+   * To access the full response (for headers, for example), `create$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  save(params: {
+  create(params: {
     context?: HttpContext
-    body: CompanyDto
+    body: CreateVacancyDto
   }
-): Observable<CompanyDto> {
+): Observable<VacancyDto> {
 
-    return this.save$Response(params).pipe(
-      map((r: StrictHttpResponse<CompanyDto>) => r.body as CompanyDto)
+    return this.create$Response(params).pipe(
+      map((r: StrictHttpResponse<VacancyDto>) => r.body as VacancyDto)
     );
   }
 
   /**
-   * Path part for operation get
+   * Path part for operation getById
    */
-  static readonly GetPath = '/company/{id}';
+  static readonly GetByIdPath = '/vacancy/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `get()` instead.
+   * To access only the response body, use `getById()` instead.
    *
    * This method doesn't expect any request body.
    */
-  get$Response(params: {
+  getById$Response(params: {
     id: number;
     context?: HttpContext
   }
-): Observable<StrictHttpResponse<CompanyDto>> {
+): Observable<StrictHttpResponse<VacancyDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, CompanyService.GetPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, VacancyService.GetByIdPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -150,25 +151,25 @@ export class CompanyService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<CompanyDto>;
+        return r as StrictHttpResponse<VacancyDto>;
       })
     );
   }
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `get$Response()` instead.
+   * To access the full response (for headers, for example), `getById$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  get(params: {
+  getById(params: {
     id: number;
     context?: HttpContext
   }
-): Observable<CompanyDto> {
+): Observable<VacancyDto> {
 
-    return this.get$Response(params).pipe(
-      map((r: StrictHttpResponse<CompanyDto>) => r.body as CompanyDto)
+    return this.getById$Response(params).pipe(
+      map((r: StrictHttpResponse<VacancyDto>) => r.body as VacancyDto)
     );
   }
 
