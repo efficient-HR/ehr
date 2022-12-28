@@ -10,11 +10,11 @@ export class CompanyDto {
   @AutoMap()
   name: string;
 
-  @ApiProperty()
+  @ApiProperty({ nullable: true })
   @AutoMap()
-  location: string;
+  location?: string;
 
-  @ApiProperty()
+  @ApiProperty({ nullable: true })
   @AutoMap()
-  about: string;
+  about?: string;
 }

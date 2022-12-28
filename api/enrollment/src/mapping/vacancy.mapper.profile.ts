@@ -3,8 +3,7 @@ import { createMap, forMember, mapFrom, Mapper } from '@automapper/core';
 import { Injectable } from '@nestjs/common';
 import { Vacancy } from 'src/database/entities/vacancy.entity';
 import { VacancyDto } from 'src/vacancy/dto/vacancy.dto';
-import { Company } from 'src/database/entities/company.entity';
-import { CreateVacancyDto } from 'src/vacancy/dto/create-vacancy.Dto';
+import { SaveVacancyDto } from 'src/vacancy/dto/save-vacancy.dto';
 
 @Injectable()
 export class VacancyMapperProfile extends AutomapperProfile {
@@ -14,24 +13,16 @@ export class VacancyMapperProfile extends AutomapperProfile {
 
   override get profile() {
     return (mapper) => {
-      createMap(
-        mapper,
-        Vacancy,
-        VacancyDto,
-        forMember(
-          (destination) => destination.companyName,
-          mapFrom((source) => source.company.name),
-        ),
-      );
+      createMap(mapper, Vacancy, VacancyDto);
 
       createMap(
         mapper,
-        CreateVacancyDto,
+        SaveVacancyDto,
         Vacancy,
-        forMember(
-          (destination) => destination.company.id,
-          mapFrom((source) => source.companyId),
-        ),
+        // forMember(
+        //   (destination) => destination.company.id,
+        //   mapFrom((source) => source.companyId),
+        // ),
       );
     };
   }

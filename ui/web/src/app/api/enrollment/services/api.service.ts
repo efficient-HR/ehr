@@ -26,7 +26,7 @@ export class ApiService extends BaseService {
   /**
    * Path part for operation findAll
    */
-  static readonly FindAllPath = '/applicaion';
+  static readonly FindAllPath = '/api/applicaion';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -72,23 +72,23 @@ export class ApiService extends BaseService {
   }
 
   /**
-   * Path part for operation create_1
+   * Path part for operation create
    */
-  static readonly Create_1Path = '/applicaion';
+  static readonly CreatePath = '/api/applicaion';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `create_1()` instead.
+   * To access only the response body, use `create()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  create_1$Response(params: {
+  create$Response(params: {
     context?: HttpContext
     body: CreateApplicaionDto
   }
 ): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, ApiService.Create_1Path, 'post');
+    const rb = new RequestBuilder(this.rootUrl, ApiService.CreatePath, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
     }
@@ -107,17 +107,17 @@ export class ApiService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `create_1$Response()` instead.
+   * To access the full response (for headers, for example), `create$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  create_1(params: {
+  create(params: {
     context?: HttpContext
     body: CreateApplicaionDto
   }
 ): Observable<void> {
 
-    return this.create_1$Response(params).pipe(
+    return this.create$Response(params).pipe(
       map((r: StrictHttpResponse<void>) => r.body as void)
     );
   }
@@ -125,7 +125,7 @@ export class ApiService extends BaseService {
   /**
    * Path part for operation findOne
    */
-  static readonly FindOnePath = '/applicaion/{id}';
+  static readonly FindOnePath = '/api/applicaion/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -176,7 +176,7 @@ export class ApiService extends BaseService {
   /**
    * Path part for operation remove
    */
-  static readonly RemovePath = '/applicaion/{id}';
+  static readonly RemovePath = '/api/applicaion/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -227,7 +227,7 @@ export class ApiService extends BaseService {
   /**
    * Path part for operation update
    */
-  static readonly UpdatePath = '/applicaion/{id}';
+  static readonly UpdatePath = '/api/applicaion/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -281,7 +281,7 @@ export class ApiService extends BaseService {
   /**
    * Path part for operation getHello
    */
-  static readonly GetHelloPath = '/';
+  static readonly GetHelloPath = '/api';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.

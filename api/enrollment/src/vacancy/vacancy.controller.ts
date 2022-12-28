@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { CreateVacancyDto } from './dto/create-vacancy.Dto';
+import { SaveVacancyDto } from './dto/save-vacancy.dto';
 import { VacancyDto } from './dto/vacancy.dto';
 import { VacancyService } from './vacancy.service';
 
@@ -11,8 +11,7 @@ export class VacancyController {
 
   @Get()
   @ApiResponse({ type: VacancyDto, isArray: true })
-  // @ApiParam({ name: 'id', required: true })
-  async get(): Promise<VacancyDto[]> {
+  async all(): Promise<VacancyDto[]> {
     return await this.vacancyService.get();
   }
 
@@ -25,7 +24,7 @@ export class VacancyController {
 
   @Post()
   @ApiResponse({ type: VacancyDto, isArray: false })
-  async create(@Body() vacency: CreateVacancyDto): Promise<VacancyDto> {
-    return this.vacancyService.create(vacency);
+  async save(@Body() vacancy: SaveVacancyDto): Promise<VacancyDto> {
+    return this.vacancyService.create(vacancy);
   }
 }

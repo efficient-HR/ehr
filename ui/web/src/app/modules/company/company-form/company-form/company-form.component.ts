@@ -10,7 +10,9 @@ import { companyConfig } from './company.config';
 export class CompanyFormComponent implements OnChanges {
   @Output() saveEvent = new EventEmitter<CompanyDto>();
   @Input() model!: CompanyDto;
+
   constructor() {}
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes?.['model']?.currentValue) {
       console.log(this.model);

@@ -27,8 +27,6 @@ export class CompanyFormShellComponent implements OnInit {
     }
   }
   async save($event: CompanyDto) {
-    console.log($event);
-
     await lastValueFrom(this.companyService.save({ body: $event }));
   }
 }

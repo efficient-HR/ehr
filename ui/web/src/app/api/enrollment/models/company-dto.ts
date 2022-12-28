@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 export interface CompanyDto {
-  about: string;
+  about: null | string;
   id: number;
-  location: string;
+  location: null | string;
   name: string;
 }

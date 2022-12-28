@@ -5,14 +5,11 @@ import { DefaultFooterLayoutComponent } from './default-footer-layout/default-fo
 import { DefaultLayoutComponent } from './default-layout/default-layout.component';
 import { RouterModule } from '@angular/router';
 import { DefaultMenuLayoutComponent } from './default-menu-layout/default-menu-layout.component';
+import { LayoutService } from './layout.service';
 
 @NgModule({
-  declarations: [
-    DefaultLayoutComponent,
-    DefaultHeaderLayoutComponent,
-    DefaultFooterLayoutComponent,
-    DefaultMenuLayoutComponent,
-  ],
+  providers: [LayoutService],
+  declarations: [DefaultLayoutComponent, DefaultHeaderLayoutComponent, DefaultFooterLayoutComponent, DefaultMenuLayoutComponent],
   imports: [CommonModule, RouterModule],
 })
 export class LayoutModule {}

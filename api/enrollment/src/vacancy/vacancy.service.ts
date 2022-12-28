@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Vacancy } from 'src/database/entities/vacancy.entity';
 import { Repository } from 'typeorm';
-import { CreateVacancyDto } from './dto/create-vacancy.Dto';
+import { SaveVacancyDto } from './dto/save-vacancy.dto';
 import { VacancyDto } from './dto/vacancy.dto';
 
 @Injectable()
@@ -15,8 +15,8 @@ export class VacancyService {
     @InjectMapper()
     private mapper: Mapper,
   ) {}
-  async create(vacency: CreateVacancyDto): Promise<VacancyDto> {
-    const req = this.mapper.map(vacency, CreateVacancyDto, Vacancy);
+  async create(vacancy: SaveVacancyDto): Promise<VacancyDto> {
+    const req = this.mapper.map(vacancy, SaveVacancyDto, Vacancy);
     const res = await this.vacancyRepository.save(req);
     return this.mapper.map(res, Vacancy, VacancyDto);
   }

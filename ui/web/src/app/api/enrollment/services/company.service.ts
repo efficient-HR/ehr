@@ -25,7 +25,7 @@ export class CompanyService extends BaseService {
   /**
    * Path part for operation all
    */
-  static readonly AllPath = '/company';
+  static readonly AllPath = '/api/company';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -73,7 +73,7 @@ export class CompanyService extends BaseService {
   /**
    * Path part for operation save
    */
-  static readonly SavePath = '/company';
+  static readonly SavePath = '/api/company';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -124,7 +124,7 @@ export class CompanyService extends BaseService {
   /**
    * Path part for operation get
    */
-  static readonly GetPath = '/company/{id}';
+  static readonly GetPath = '/api/company/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.

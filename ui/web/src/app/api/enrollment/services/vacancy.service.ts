@@ -9,7 +9,7 @@ import { RequestBuilder } from '../request-builder';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
-import { CreateVacancyDto } from '../models/create-vacancy-dto';
+import { SaveVacancyDto } from '../models/save-vacancy-dto';
 import { VacancyDto } from '../models/vacancy-dto';
 
 @Injectable({
@@ -24,22 +24,22 @@ export class VacancyService extends BaseService {
   }
 
   /**
-   * Path part for operation get_1
+   * Path part for operation all_1
    */
-  static readonly Get_1Path = '/vacancy';
+  static readonly All_1Path = '/api/vacancy';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `get_1()` instead.
+   * To access only the response body, use `all_1()` instead.
    *
    * This method doesn't expect any request body.
    */
-  get_1$Response(params?: {
+  all_1$Response(params?: {
     context?: HttpContext
   }
 ): Observable<StrictHttpResponse<Array<VacancyDto>>> {
 
-    const rb = new RequestBuilder(this.rootUrl, VacancyService.Get_1Path, 'get');
+    const rb = new RequestBuilder(this.rootUrl, VacancyService.All_1Path, 'get');
     if (params) {
     }
 
@@ -57,38 +57,38 @@ export class VacancyService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `get_1$Response()` instead.
+   * To access the full response (for headers, for example), `all_1$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  get_1(params?: {
+  all_1(params?: {
     context?: HttpContext
   }
 ): Observable<Array<VacancyDto>> {
 
-    return this.get_1$Response(params).pipe(
+    return this.all_1$Response(params).pipe(
       map((r: StrictHttpResponse<Array<VacancyDto>>) => r.body as Array<VacancyDto>)
     );
   }
 
   /**
-   * Path part for operation create
+   * Path part for operation save_1
    */
-  static readonly CreatePath = '/vacancy';
+  static readonly Save_1Path = '/api/vacancy';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `create()` instead.
+   * To access only the response body, use `save_1()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  create$Response(params: {
+  save_1$Response(params: {
     context?: HttpContext
-    body: CreateVacancyDto
+    body: SaveVacancyDto
   }
 ): Observable<StrictHttpResponse<VacancyDto>> {
 
-    const rb = new RequestBuilder(this.rootUrl, VacancyService.CreatePath, 'post');
+    const rb = new RequestBuilder(this.rootUrl, VacancyService.Save_1Path, 'post');
     if (params) {
       rb.body(params.body, 'application/json');
     }
@@ -107,17 +107,17 @@ export class VacancyService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `create$Response()` instead.
+   * To access the full response (for headers, for example), `save_1$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  create(params: {
+  save_1(params: {
     context?: HttpContext
-    body: CreateVacancyDto
+    body: SaveVacancyDto
   }
 ): Observable<VacancyDto> {
 
-    return this.create$Response(params).pipe(
+    return this.save_1$Response(params).pipe(
       map((r: StrictHttpResponse<VacancyDto>) => r.body as VacancyDto)
     );
   }
@@ -125,7 +125,7 @@ export class VacancyService extends BaseService {
   /**
    * Path part for operation getById
    */
-  static readonly GetByIdPath = '/vacancy/{id}';
+  static readonly GetByIdPath = '/api/vacancy/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.

@@ -1,5 +1,6 @@
 import { AutoMap } from '@automapper/classes';
 import { ApiProperty } from '@nestjs/swagger';
+import { CompanyDto } from 'src/company/dto/company.dto';
 
 export class VacancyDto {
   @ApiProperty()
@@ -26,7 +27,7 @@ export class VacancyDto {
   @AutoMap()
   description: string;
 
-  @ApiProperty()
+  @ApiProperty({ nullable: true })
   @AutoMap()
-  companyName: string;
+  company?: CompanyDto;
 }

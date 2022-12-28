@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
-export interface CreateVacancyDto {
-  companyId: number;
-  companyName: string;
+import { CompanyDto } from './company-dto';
+export interface SaveVacancyDto {
+  company: null | CompanyDto;
   description: string;
   experience: string;
   id: number;

@@ -8,7 +8,7 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  app.setGlobalPrefix('api');
   const config = new DocumentBuilder()
     .setTitle('Enrollment Api')
     .setDescription('The Enrollment API description')
