@@ -13,16 +13,24 @@ export class VacancyMapperProfile extends AutomapperProfile {
 
   override get profile() {
     return (mapper) => {
-      createMap(mapper, Vacancy, VacancyDto);
+      createMap(
+        mapper,
+        Vacancy,
+        VacancyDto,
+        forMember(
+          (destination) => destination.company,
+          mapFrom((source) => source.company),
+        ),
+      );
 
       createMap(
         mapper,
         SaveVacancyDto,
         Vacancy,
-        // forMember(
-        //   (destination) => destination.company.id,
-        //   mapFrom((source) => source.companyId),
-        // ),
+        forMember(
+          (destination) => destination.company,
+          mapFrom((source) => source.company),
+        ),
       );
     };
   }

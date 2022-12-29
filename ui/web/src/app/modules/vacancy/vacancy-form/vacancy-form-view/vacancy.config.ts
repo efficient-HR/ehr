@@ -6,10 +6,10 @@ export const vacancyConfig: FormlyFieldConfig[] = [
     hide: true,
   },
   {
-    key: 'name',
+    key: 'title',
     type: 'input',
     props: {
-      label: 'Name',
+      label: 'Title',
       required: true,
     },
   },
@@ -55,8 +55,9 @@ export const vacancyConfig: FormlyFieldConfig[] = [
     },
   },
   {
-    key: 'company.name',
+    key: 'company.id',
     type: 'select',
+    defaultValue: 'company.id',
     props: {
       label: 'Company',
       required: true,

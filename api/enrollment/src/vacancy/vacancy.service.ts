@@ -27,7 +27,8 @@ export class VacancyService {
       },
       where: { id: id },
     });
-    return this.mapper.map(vacancy, Vacancy, VacancyDto);
+    const c = this.mapper.map(vacancy, Vacancy, VacancyDto);
+    return c;
   }
   async get(): Promise<VacancyDto[]> {
     const vacancies = await this.vacancyRepository.find({

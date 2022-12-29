@@ -7,7 +7,8 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>Name</th>
+          <th>Title</th>
+          <th>Company</th>
           <th>Location</th>
           <th>Experience</th>
           <th>Skill</th>
@@ -19,8 +20,9 @@
       <tbody class="table-border-bottom-0">
         <tr *ngFor="let vacancy of vacancies">
           <td>
-            <i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ vacancy.title }}</strong>
+            <strong>{{ vacancy.title }}</strong>
           </td>
+          <td>{{ vacancy.company?.name }}</td>
           <td>{{ vacancy.location }}</td>
           <td>{{ vacancy.experience }}</td>
           <td>{{ vacancy.skill }}</td>

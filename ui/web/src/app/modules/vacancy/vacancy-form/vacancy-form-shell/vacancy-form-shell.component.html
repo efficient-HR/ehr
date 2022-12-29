@@ -1,1 +1,1 @@
-<app-vacancy-form-view (saveEvent)="save($event)" [model]="model"></app-vacancy-form-view>
+<app-vacancy-form-view (saveEvent)="save($event)" [model]="model | async" [companies]="companies | async"></app-vacancy-form-view>
