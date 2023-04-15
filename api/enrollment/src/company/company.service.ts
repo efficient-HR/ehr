@@ -2,7 +2,7 @@ import { Mapper } from '@automapper/core';
 import { InjectMapper } from '@automapper/nestjs';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Company } from 'src/database/entities/company.entity';
+import { Company } from './../database/entities/company.entity';
 import { Repository } from 'typeorm';
 import { CompanyDto } from './dto/company.dto';
 @Injectable()
@@ -26,8 +26,9 @@ export class CompanyService {
     return this.mapper.map(email, Company, CompanyDto);
   }
 
-  save(company: CompanyDto): Promise<Company> {
+  async save(company: CompanyDto): Promise<CompanyDto> {
     const req = this.mapper.map(company, CompanyDto, Company);
-    return this.companyRepository.save(req);
+    company = await this.companyRepository.save(req);
+    return this.mapper.map(company, Company, CompanyDto);
   }
 }

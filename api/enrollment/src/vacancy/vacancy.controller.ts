@@ -12,7 +12,7 @@ export class VacancyController {
   @Get()
   @ApiResponse({ type: VacancyDto, isArray: true })
   async all(): Promise<VacancyDto[]> {
-    return await this.vacancyService.get();
+    return await this.vacancyService.all();
   }
 
   @Get('/:id')

@@ -1,8 +1,8 @@
 import { AutomapperProfile, InjectMapper } from '@automapper/nestjs';
 import { createMap, Mapper } from '@automapper/core';
 import { Injectable } from '@nestjs/common';
-import { Company } from 'src/database/entities/company.entity';
 import { CompanyDto } from '../company/dto/company.dto';
+import { Company } from '../database/entities/company.entity';
 @Injectable()
 export class CompanyMapperProfile extends AutomapperProfile {
   constructor(@InjectMapper() mapper: Mapper) {

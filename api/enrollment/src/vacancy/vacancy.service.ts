@@ -2,10 +2,10 @@ import { Mapper } from '@automapper/core';
 import { InjectMapper } from '@automapper/nestjs';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Vacancy } from 'src/database/entities/vacancy.entity';
 import { Repository } from 'typeorm';
 import { SaveVacancyDto } from './dto/save-vacancy.dto';
 import { VacancyDto } from './dto/vacancy.dto';
+import { Vacancy } from '../database/entities/vacancy.entity';
 
 @Injectable()
 export class VacancyService {
@@ -30,7 +30,7 @@ export class VacancyService {
     const c = this.mapper.map(vacancy, Vacancy, VacancyDto);
     return c;
   }
-  async get(): Promise<VacancyDto[]> {
+  async all(): Promise<VacancyDto[]> {
     const vacancies = await this.vacancyRepository.find({
       relations: {
         company: true,

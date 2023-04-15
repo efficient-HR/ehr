@@ -28,5 +28,5 @@ export class Company {
   about: string;
 
   @OneToMany(() => Vacancy, (c) => c.company)
-  vacancies: Vacancy[];
+  vacancies?: Vacancy[];
 }
