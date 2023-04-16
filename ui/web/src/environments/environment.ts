@@ -1,4 +1,4 @@
 export const environment = {
-  notificationUri: 'http://localhost:3010',
-  enrollmentUri: 'http://localhost:3020',
+  notificationUri: 'http://localhost:3001',
+  enrollmentUri: 'http://localhost:3002',
 };
