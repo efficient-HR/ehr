@@ -8,5 +8,6 @@ export interface VacancyDto {
   id: number;
   location: string;
   skill: string;
+  status: string;
   title: string;
 }

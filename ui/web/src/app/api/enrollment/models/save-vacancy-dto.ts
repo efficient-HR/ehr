@@ -8,5 +8,6 @@ export interface SaveVacancyDto {
   id: number;
   location: string;
   skill: string;
+  status: string;
   title: string;
 }

@@ -26,6 +26,10 @@ export class Vacancy extends ParentEntity {
   @AutoMap()
   description: string;
 
+  @Column({ default: 1 })
+  @AutoMap()
+  status: number;
+
   // TODO: this must be linked to user table.
   @Column({ nullable: true })
   @AutoMap()

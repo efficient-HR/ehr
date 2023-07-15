@@ -2,8 +2,8 @@ import { AutoMap } from '@automapper/classes';
 import { Column, Entity } from 'typeorm';
 import { ParentEntity } from './parentEntity';
 
-@Entity({ schema: 'company', name: 'applicaion' })
-export class Applicaion extends ParentEntity {
+@Entity({ schema: 'company', name: 'application' })
+export class Application extends ParentEntity {
   @Column()
   @AutoMap()
   vacancyId: number;

@@ -7,7 +7,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CompanyModule } from './company/company.module';
 import { VacancyModule } from './vacancy/vacancy.module';
-import { ApplicaionModule } from './applicaion/applicaion.module';
+import { ApplicationModule } from './application/application.module';
 import { InterviewModule } from './interview/interview.module';
 
 @Module({
@@ -21,7 +21,7 @@ import { InterviewModule } from './interview/interview.module';
 
     VacancyModule,
 
-    ApplicaionModule,
+    ApplicationModule,
 
     InterviewModule,
   ],

@@ -21,6 +21,19 @@ export class VacancyMapperProfile extends AutomapperProfile {
           (destination) => destination.company,
           mapFrom((source) => source.company),
         ),
+        forMember(
+          (destination) => destination.status,
+          mapFrom((e) => {
+            switch (e.status) {
+              case 1:
+                return 'Active';
+              case 2:
+                return 'Inactive';
+              default:
+                return 'Unknown';
+            }
+          }),
+        ),
       );
 
       createMap(

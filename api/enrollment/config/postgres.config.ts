@@ -1,24 +1,15 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
-// export const postgresConfig: TypeOrmModuleOptions = {
-//   type: 'postgres',
-//   host: 'localhost',
-//   port: 5432,
-//   username: 'arya',
-//   password: '',
-//   database: 'arya',
-//   entities: [__dirname + '/../**/*.entity.{js,ts}'],
-//   synchronize: true,
-//   logging: true,
-// };
 export const postgresConfig: TypeOrmModuleOptions = {
   type: 'postgres',
-  host: 'tiny.db.elephantsql.com',
+  host: 'localhost',
   port: 5432,
-  username: 'msugytwy',
-  password: 'YM12sxNMrOK9mW1AU35mKg21q3oyKJft',
-  database: 'msugytwy',
+  username: 'ehrUser',
+  password: 'ehrPW',
+  database: 'ehrDB',
   entities: [__dirname + '/../**/*.entity.{js,ts}'],
+  migrations: [__dirname + '/../migrations/*.{js,ts}'],
   synchronize: true,
   logging: true,
+  migrationsTableName: 'migrations',
 };

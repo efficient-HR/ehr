@@ -14,6 +14,10 @@ export class Interview extends ParentEntity {
 
   @Column()
   @AutoMap()
+  type: number;
+
+  @Column()
+  @AutoMap()
   schedule: Date;
 
   @Column()

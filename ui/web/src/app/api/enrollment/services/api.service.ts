@@ -9,8 +9,8 @@ import { RequestBuilder } from '../request-builder';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
-import { CreateApplicaionDto } from '../models/create-applicaion-dto';
-import { UpdateApplicaionDto } from '../models/update-applicaion-dto';
+import { CreateApplicationDto } from '../models/create-application-dto';
+import { UpdateApplicationDto } from '../models/update-application-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +26,7 @@ export class ApiService extends BaseService {
   /**
    * Path part for operation findAll
    */
-  static readonly FindAllPath = '/api/applicaion';
+  static readonly FindAllPath = '/api/application';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -74,7 +74,7 @@ export class ApiService extends BaseService {
   /**
    * Path part for operation create
    */
-  static readonly CreatePath = '/api/applicaion';
+  static readonly CreatePath = '/api/application';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -84,7 +84,7 @@ export class ApiService extends BaseService {
    */
   create$Response(params: {
     context?: HttpContext
-    body: CreateApplicaionDto
+    body: CreateApplicationDto
   }
 ): Observable<StrictHttpResponse<void>> {
 
@@ -113,7 +113,7 @@ export class ApiService extends BaseService {
    */
   create(params: {
     context?: HttpContext
-    body: CreateApplicaionDto
+    body: CreateApplicationDto
   }
 ): Observable<void> {
 
@@ -125,7 +125,7 @@ export class ApiService extends BaseService {
   /**
    * Path part for operation findOne
    */
-  static readonly FindOnePath = '/api/applicaion/{id}';
+  static readonly FindOnePath = '/api/application/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -176,7 +176,7 @@ export class ApiService extends BaseService {
   /**
    * Path part for operation remove
    */
-  static readonly RemovePath = '/api/applicaion/{id}';
+  static readonly RemovePath = '/api/application/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -227,7 +227,7 @@ export class ApiService extends BaseService {
   /**
    * Path part for operation update
    */
-  static readonly UpdatePath = '/api/applicaion/{id}';
+  static readonly UpdatePath = '/api/application/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -238,7 +238,7 @@ export class ApiService extends BaseService {
   update$Response(params: {
     id: string;
     context?: HttpContext
-    body: UpdateApplicaionDto
+    body: UpdateApplicationDto
   }
 ): Observable<StrictHttpResponse<void>> {
 
@@ -269,7 +269,7 @@ export class ApiService extends BaseService {
   update(params: {
     id: string;
     context?: HttpContext
-    body: UpdateApplicaionDto
+    body: UpdateApplicationDto
   }
 ): Observable<void> {
 

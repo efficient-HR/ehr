@@ -47,14 +47,6 @@ export const vacancyConfig: FormlyFieldConfig[] = [
     },
   },
   {
-    key: 'title',
-    type: 'input',
-    props: {
-      label: 'Title',
-      required: true,
-    },
-  },
-  {
     key: 'company.id',
     type: 'select',
     defaultValue: 'company.id',
